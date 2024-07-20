@@ -138,6 +138,11 @@ def parse_args(args: list[str]) -> Namespace:
         help="use AM/PM format (default: 24-hour format)",
         action="store_true",
     )
+    parser_set.add_argument(
+        "--cgd1",
+        help="specifically used for syncing CGD1",
+        action="store_true",
+    )
     parser_set.set_defaults(func=set_clock_time)
 
     # Return complete parser
@@ -203,6 +208,10 @@ async def get_clock_time(args: Namespace) -> None:
 
 async def set_clock_time(args: Namespace) -> None:
     """Set the time of a Bluetooth clock."""
+    if args.cgd1:
+        from bluetooth_clocks.devices.cgd1 import sync_time
+        await sync_time(args.address)
+        return
     try:
         print(f"Scanning for device {args.address}...")
         clock = await find_clock(args.address, args.scan_duration)
