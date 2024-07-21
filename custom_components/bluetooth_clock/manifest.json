@@ -1,0 +1,11 @@
+{
+  "domain": "bluetooth_clock",
+  "name": "Bluetooth Clock",
+  "codeowners": [],
+  "dependencies": [],
+  "documentation": "",
+  "iot_class": "local_polling",
+  "requirements": ["bluetooth-clocks @ git+https://github.com/amigcamel/bluetooth-clocks/"],
+  "version": "0.1.0"
+}
+

@@ -1,0 +1,12 @@
+set_clock:
+  description: "Set the Bluetooth clock for a device."
+  fields:
+    mac_address:
+      description: "The MAC address of the Bluetooth device."
+      example: "17:75:BD:51:38:2C"
+    target:
+      description: "lywsd02 or CGD1"
+      example: "lywsd02"
+    time:
+      description: "The time to set on the device (optional)."
+      example: "2023-01-10T16:20"
